@@ -1,5 +1,7 @@
 package isen.jee.mastermind;
 
+import isen.jee.mastermind.Piece.Colors;
+
 public class Combination {
 
 	Piece combinationArray[] = new Piece[4];
@@ -8,10 +10,17 @@ public class Combination {
 	public void createCombination() {
 		for (int i = 0; i < 4; i++) {
 			combinationArray[i] = new Piece();
-			combinationArray[i].chooseRandomColor();
+		}
+	}
+	
+	
+	public void createCombination(Colors color[]) {
+		for (int i = 0; i < 4; i++) {
+			combinationArray[i] = new Piece(color[i]);	
 		}
 	}
 
+	
 	public void compareCombination(Piece combination[]) {
 		int goodColorGoodPlace = 0;
 		int goodColorBadPlace = 0;

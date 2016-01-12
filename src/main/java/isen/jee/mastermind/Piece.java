@@ -3,14 +3,20 @@ package isen.jee.mastermind;
 import java.util.Random;
 
 public class Piece {
-
-	public Piece(){
-		this.color = this.chooseRandomColor();
-	}
 	
 	public enum Colors {
 		RED, YELLOW, GREEN, BLUE, ORANGE, WHITE, PURPLE, BLACK
 	}
+	
+	public Piece(){
+		this.color = this.chooseRandomColor();
+	}
+	
+	public Piece(Colors color ){
+		this.color = color;
+	}
+	
+	
 	
 	private Colors color;
 
