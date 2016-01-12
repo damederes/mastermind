@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class Piece {
 
+	public Piece(){
+		this.color = this.chooseRandomColor();
+	}
+	
 	public enum Colors {
 		RED, YELLOW, GREEN, BLUE, ORANGE, WHITE, PURPLE, BLACK
 	}
@@ -22,4 +26,5 @@ public class Piece {
 	public void setColor(Colors color) {
 		this.color = color;
 	}
+	
 }
