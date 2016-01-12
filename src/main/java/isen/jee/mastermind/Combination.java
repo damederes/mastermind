@@ -12,7 +12,7 @@ public class Combination {
 		}
 	}
 
-	public void testCombination(Piece combination[]) {
+	public void compareCombination(Piece combination[]) {
 		int goodColorGoodPlace = 0;
 		int goodColorBadPlace = 0;
 		for (int i = 0; i < 4; i++){
