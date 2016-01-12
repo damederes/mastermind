@@ -8,10 +8,18 @@ public class Piece {
 		RED, YELLOW, GREEN, BLUE, ORANGE, WHITE, PURPLE, BLACK
 	}
 	
-	public Colors color;
+	private Colors color;
 
 	public Colors chooseRandomColor(){
 		int pick = new Random().nextInt(Colors.values().length);
 		return Colors.values()[pick];
+	}
+
+	public Colors getColor() {
+		return color;
+	}
+
+	public void setColor(Colors color) {
+		this.color = color;
 	}
 }
