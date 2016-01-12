@@ -20,9 +20,7 @@ public class Combination {
 				if(i == j){
 					if(combination[i].color == combinationArray[j].color){
 						goodColorGoodPlace+=1;
-					}
-				
-						
+					}		
 				}
 				else{
 					if(combination[i].color == combinationArray[j].color){
@@ -31,7 +29,14 @@ public class Combination {
 				}
 			}
 		}
-		responseArray = {goodColorGoodPlace , goodColorBadPlace};
+		responseArray[0] = goodColorGoodPlace;
+		responseArray[1] = goodColorBadPlace;
+	}
+	
+	public void isThereAWinner(){
+		if(responseArray[0] == 4){
+			// There is a winnerrrrrrr   !!!!!
+		}
 	}
 
 }
