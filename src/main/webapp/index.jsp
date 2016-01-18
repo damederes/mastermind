@@ -7,6 +7,9 @@
 <title>coucou toi</title>
 </head>
 <body>
+<p>
+COUCOU TOI EN MAJUSCULE
+</p>
 
 </body>
 </html>
