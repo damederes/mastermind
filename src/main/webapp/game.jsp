@@ -25,60 +25,73 @@
             </div>
         </div>
     </div>
+	
+	<div>
+	<form method="get" action="FirstServlet">
+   		<p>
+   			<label for="pays">Pion 1</label>
+       		<select name="couleur1" id="couleur">
+        	   <option value="red">rouge</option>
+        	   <option value="yellow">jaune</option>
+        	   <option value="green">vert</option>
+        	   <option value="blue">bleu</option>
+        	   <option value="orange">orange</option>
+        	   <option value="white">blanc</option>
+        	   <option value="purple">violet</option>
+        	   <option value="black">noir</option>
+       		</select>
+			
+			<label for="pays">Pion 2</label>
+       		<select name="couleur2" id="couleur">
+        	   <option value="red">rouge</option>
+        	   <option value="yellow">jaune</option>
+        	   <option value="green">vert</option>
+        	   <option value="blue">bleu</option>
+        	   <option value="orange">orange</option>
+        	   <option value="white">blanc</option>
+        	   <option value="purple">violet</option>
+        	   <option value="black">noir</option>
+       		</select>
 
-    <div class="main container">
-        <div class="ui two column middle aligned relaxed grid">
-            <div class="column">
-                <div id="board" class="ui four column padded grid">
-<%--                 <c:forEach items ="${game.cards}" var="card"> --%>
-<%--                 	<c:choose> --%>
-<%--                 		<c:when test="${card.side==RECTO}"> --%>
-<%--                 			<div class="column"><a href="?piece=${card.index}" class="ui icon massive button"></a></div> --%>
-<%--                 		</c:when> --%>
-<%--                 		<c:otherwise> --%>
-<%--                 			<div class="column disabled"><a href="" class="ui icon massive ${card.cssColor} button"></a></div> --%>
-<%--                 		</c:otherwise> --%>
-<%--                 	</c:choose> --%>
-<%--                 </c:forEach> --%>
-						
+   			<label for="pays">Pion 3</label>
+       		<select name="couleur3" id="couleur">
+        	   <option value="red">rouge</option>
+        	   <option value="yellow">jaune</option>
+        	   <option value="green">vert</option>
+        	   <option value="blue">bleu</option>
+        	   <option value="orange">orange</option>
+        	   <option value="white">blanc</option>
+        	   <option value="purple">violet</option>
+        	   <option value="black">noir</option>
+       		</select>
 
-                        <div class="two wide column"><a href="?piece=1" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=2" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=3" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=4" class="circular ui icon massive blue button"></a></div>
-                        <div class="two wide column"><a href="?piece=5" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=6" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=7" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=8" class="circular ui icon massive blue button"></a></div>
-                        <div class="two wide column"><a href="?piece=9" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=10" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=11" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=12" class="circular ui icon massive blue button"></a></div>
-                        <div class="two wide column"><a href="?piece=13" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=14" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=15" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=16" class="circular ui icon massive blue button"></a></div>
-                        <div class="two wide column"><a href="?piece=17" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=18" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=19" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=20" class="circular ui icon massive blue button"></a></div>
-                        <div class="two wide column"><a href="?piece=21" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=22" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=23" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=24" class="circular ui icon massive blue button"></a></div>
-                        <div class="two wide column"><a href="?piece=25" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=26" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=27" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=28" class="circular ui icon massive blue button"></a></div>
-                        <div class="two wide column"><a href="?piece=29" class="circular ui icon massive red button"></a></div>
-                        <div class="two wide column"><a href="?piece=30" class="circular ui icon massive yellow button"></a></div>
-                        <div class="two wide column"><a href="?piece=31" class="circular ui icon massive green button"></a></div>
-                        <div class="two wide column"><a href="?piece=32" class="circular ui icon massive blue button"></a></div>
-                       
-                </div>    
-            </div>
-	   </div>
-    </div>
+   			<label for="pays">Pion 4</label>
+       		<select name="couleur4" id="couleur">
+        	   <option value="red">rouge</option>
+        	   <option value="yellow">jaune</option>
+        	   <option value="green">vert</option>
+        	   <option value="blue">bleu</option>
+        	   <option value="orange">orange</option>
+        	   <option value="white">blanc</option>
+        	   <option value="purple">violet</option>
+        	   <option value="black">noir</option>
+       		</select>
+   			</p>
+   		<input type="submit" value="Envoyer" >
+	</form>
+	</div>
+	<div id="board" class="ui four column grid">
+
+				String couleur = (String) request.getAttribute("couleur1");
+				
+                <div class="column"><a href="" class="ui icon massive ${couleur1} button"></a></div>
+            
+				<div class="column"><a href="?pion=1" class="ui icon massive red button"></a></div>
+                <div class="column"><a href="?pion=2" class="ui icon massive orange button"></a></div>
+                <div class="column"><a href="?pion=3" class="ui icon massive purple button"></a></div>
+                <div class="column"><a href="?pion=4" class="ui icon massive blue button"></a></div>
+	
+	</div>
 </body>
 
 </html>
