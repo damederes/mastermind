@@ -19,7 +19,7 @@
 
     <div id="header" class="header segment">
         <div class="container">
-            <h2 class="ui dividing header">Memory</h2>
+            <h2 class="ui dividing header">Mastermind</h2>
             <div class="introduction">
                 <p>Bienvenue à ce jeu de mastermind </p>
             </div>
