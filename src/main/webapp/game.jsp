@@ -29,7 +29,7 @@
 	<div>
 	<form method="get" action="FirstServlet">
    		<p>
-   			<label for="pays">Pion 1</label>
+   			<label>Pion 1</label>
        		<select name="couleur1" id="couleur">
         	   <option value="red">rouge</option>
         	   <option value="yellow">jaune</option>
@@ -41,7 +41,7 @@
         	   <option value="black">noir</option>
        		</select>
 			
-			<label for="pays">Pion 2</label>
+			<label>Pion 2</label>
        		<select name="couleur2" id="couleur">
         	   <option value="red">rouge</option>
         	   <option value="yellow">jaune</option>
@@ -53,7 +53,7 @@
         	   <option value="black">noir</option>
        		</select>
 
-   			<label for="pays">Pion 3</label>
+   			<label>Pion 3</label>
        		<select name="couleur3" id="couleur">
         	   <option value="red">rouge</option>
         	   <option value="yellow">jaune</option>
@@ -65,9 +65,9 @@
         	   <option value="black">noir</option>
        		</select>
 
-   			<label for="pays">Pion 4</label>
+   			<label>Pion 4</label>
        		<select name="couleur4" id="couleur">
-        	   <option value="red">rouge</option>
+         	   <option value="red">rouge</option>
         	   <option value="yellow">jaune</option>
         	   <option value="green">vert</option>
         	   <option value="blue">bleu</option>
@@ -81,15 +81,10 @@
 	</form>
 	</div>
 	<div id="board" class="ui four column grid">
-
-				String couleur = (String) request.getAttribute("couleur1");
-				
-                <div class="column"><a href="" class="ui icon massive ${couleur1} button"></a></div>
-            
-				<div class="column"><a href="?pion=1" class="ui icon massive red button"></a></div>
-                <div class="column"><a href="?pion=2" class="ui icon massive orange button"></a></div>
-                <div class="column"><a href="?pion=3" class="ui icon massive purple button"></a></div>
-                <div class="column"><a href="?pion=4" class="ui icon massive blue button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ pion1.getColor() } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ pion2.getColor() } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ pion3.getColor() } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ pion4.getColor() } button"></a></div>
 	
 	</div>
 </body>
