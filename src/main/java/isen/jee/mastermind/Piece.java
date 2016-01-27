@@ -26,14 +26,14 @@ public class Piece {
 	private String color;
 
 	public String chooseRandomColor(){
-		colors.add("RED");
-		colors.add("YELLOW");
-		colors.add("GREEN");
-		colors.add("BLUE");
-		colors.add("ORANGE");
-		colors.add("WHITE");
-		colors.add("PURPLE");
-		colors.add("BLACK");
+		colors.add("red");
+		colors.add("yellow");
+		colors.add("green");
+		colors.add("blue");
+		colors.add("orange");
+		colors.add("white");
+		colors.add("purple");
+		colors.add("black");
 		Random rand = new Random();
 		int nombre = rand.nextInt(8); //Entre 0 et 7
 		

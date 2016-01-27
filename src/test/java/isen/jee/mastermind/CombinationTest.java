@@ -33,9 +33,21 @@ public class CombinationTest {
 		
 		Piece piece= new Piece();
 		String[] color = new String[4];
+		String[] secondColor = new String[4];
+		String[] thirdColor = new String[4];
+		String[] fourthColor = new String[4];
+	
+		
 		for (int i = 0; i < 4 ;i++){
 			color [i] = piece.colors.get(i);
+			secondColor[3-i] = piece.colors.get(i);
+			fourthColor[i] = piece.colors.get(i+4);
 		}
+		
+		thirdColor[0]=piece.colors.get(0);
+		thirdColor[1]=piece.colors.get(1);
+		thirdColor[2]=piece.colors.get(3);
+		thirdColor[3]=piece.colors.get(2);
 		
 		Combination cb1 = new Combination();
 		cb1.createCombination(color);
@@ -44,10 +56,32 @@ public class CombinationTest {
 		Combination cb2 = new Combination();
 		cb2.createCombination(color);
 		
+		Combination cb3 = new Combination();
+		cb3.createCombination(secondColor);
+		
+		Combination cb4 = new Combination();
+		cb4.createCombination(thirdColor);
+		
+		Combination cb5 = new Combination();
+		cb5.createCombination(fourthColor);
+		
+		
 		cb1.compareCombination(cb2);
+		cb3.compareCombination(cb2);
+		cb4.compareCombination(cb2);
+		cb5.compareCombination(cb2);
+		
 		assertEquals(4, cb1.responseArray[0]);
 		assertEquals(0, cb1.responseArray[1]);
 		
+		assertEquals(0, cb3.responseArray[0]);
+		assertEquals(4, cb3.responseArray[1]);
+		
+		assertEquals(2, cb4.responseArray[0]);
+		assertEquals(2, cb4.responseArray[1]);
+		
+		assertEquals(0, cb5.responseArray[0]);
+		assertEquals(0, cb5.responseArray[1]);
 	}
 
 	
