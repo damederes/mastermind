@@ -6,6 +6,13 @@ import java.util.List;
 import java.util.Random;
 
 public class Piece {
+
+	// C'est dommage de ne pas utiliser d'enum, ça vous simplifierait
+    // la vie globalement, une pièce c'est une couleur.
+    // J'ai créé une enum Colors avec en cadeau un méthode qui vous en
+    // tire une au hasard. 
+    // Le fait de typer un couleur et de ne pas en faire un String
+    // vous aidera par la suite (dans la signature des méthodes par exemple)
 	
 	//public enum Colors {
 	//	RED, YELLOW, GREEN, BLUE, ORANGE, WHITE, PURPLE, BLACK
