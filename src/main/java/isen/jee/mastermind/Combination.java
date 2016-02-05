@@ -21,6 +21,23 @@ public class Combination {
 		for(int i = 0 ; i < 4 ; i++){
 			colors[i] = randomColor();
 		}
+		checkThatTherIsNoDoublonInRandomCombination();
+	}
+	
+	public void checkThatTherIsNoDoublonInRandomCombination(){
+		boolean isChangement = false;
+		for (int i = 0; i < 4; i++){
+			for (int j = i +1 ; j < 4; j++){
+				if(colors[i]==colors[j]){
+					colors[j]=randomColor();
+					isChangement=true;
+				}
+			}
+		}
+		if(isChangement == true){
+			checkThatTherIsNoDoublonInRandomCombination();
+		}
+		
 	}
 	
 	public enum Colors {
