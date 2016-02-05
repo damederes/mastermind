@@ -1,51 +1,34 @@
 package isen.jee.mastermind;
 
 
+import java.util.Random;
+
+
+
+
 
 public class Combination {
-
-	Piece combinationArray[] = new Piece[4];
-	int responseArray[] = new int[2];
-
-	public void createCombination() {
-		for (int i = 0; i < 4; i++) {
-			combinationArray[i] = new Piece();
+	Colors[] colors = new Colors[4];
+	public Combination(String color1, String color2, String color3, String color4){
+		colors[0] = Colors.valueOf(color1);
+		colors[1] = Colors.valueOf(color2);
+		colors[2] = Colors.valueOf(color3);
+		colors[3] = Colors.valueOf(color4);
+		
+		
+	}
+	public Combination(){
+		for(int i = 0 ; i < 4 ; i++){
+			colors[i] = randomColor();
 		}
 	}
 	
-	
-	public void createCombination(String color[]) {
-		for (int i = 0; i < 4; i++) {
-			combinationArray[i] = new Piece(color[i]);	
-		}
+	public enum Colors {
+		red, yellow, green, blue, orange, white, purple, black
 	}
 
-	
-	public void compareCombination(Combination otherCombi) {
-		int goodColorGoodPlace = 0;
-		int goodColorBadPlace = 0;
-		for (int i = 0; i < 4; i++){
-			for (int j = 0; j < 4; j++){
-				if(i == j){
-					if(otherCombi.combinationArray[i].getColor() == combinationArray[j].getColor()){
-						goodColorGoodPlace+=1;
-					}		
-				}
-				else{
-					if(otherCombi.combinationArray[i].getColor() == combinationArray[j].getColor()){
-						goodColorBadPlace+=1;
-					}
-				}
-			}
-		}
-		responseArray[0] = goodColorGoodPlace;
-		responseArray[1] = goodColorBadPlace;
-	}
-	
-	public void isThereAWinner(){
-		if(responseArray[0] == 4){
-			// There is a winnerrrrrrr   !!!!!
-		}
-	}
-
+	public static Colors randomColor() {
+		 int pick = new Random().nextInt(Colors.values().length);
+		 return Colors.values()[pick];
+	     }
 }

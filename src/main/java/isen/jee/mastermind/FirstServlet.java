@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import isen.jee.mastermind.Combination.Colors;
+
 
 @WebServlet(urlPatterns = "/g/*")
 public class FirstServlet extends HttpServlet{
@@ -30,7 +32,7 @@ public class FirstServlet extends HttpServlet{
 		request.setAttribute("couleur2", couleur2);
 		request.setAttribute("couleur3", couleur3);
 		request.setAttribute("couleur4", couleur4);
-
+/*
 		Piece pion1 = new Piece();
 		Piece pion2 = new Piece();
 		Piece pion3 = new Piece();
@@ -51,47 +53,47 @@ public class FirstServlet extends HttpServlet{
 		request.setAttribute("pion3", pion3);
 		request.setAttribute("pion4", pion4);
 		
-		
+		*/
 
 		//partie de Nico
 		
 		HttpSession session = request.getSession();
+		Game game;
 		
-		Combination newTry = new Combination();
-		Combination randomCombination = new Combination();
-		
-		if (session.getAttribute("randomCombination") == null){
-			randomCombination.createCombination();
-			session.setAttribute("randomCombination", randomCombination);
+		if (session.getAttribute("game") == null){
+			game = new Game();
+			session.setAttribute("game", game);
 			
 		}
 		else{
-			randomCombination = (Combination)request.getSession().getAttribute("randomCombination");
+			game = (Game)request.getSession().getAttribute("game");
 		}
 		
+		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
+		game.testNewCombination(newTry);
+	
 		
-		String[] colors = new String[4]; 
-		colors[0] = couleur1;
-		colors[1] = couleur2;
-		colors[2] = couleur3;
-		colors[3] = couleur4;
-		newTry.createCombination(colors);
-		newTry.compareCombination(randomCombination);
-		response.getWriter().println(randomCombination.combinationArray[0].getColor());
-		response.getWriter().println(randomCombination.combinationArray[1].getColor());
-		response.getWriter().println(randomCombination.combinationArray[2].getColor());
-		response.getWriter().println(randomCombination.combinationArray[3].getColor());
-		response.getWriter().println(newTry.combinationArray[0].getColor());
-		response.getWriter().println(newTry.combinationArray[1].getColor());
-		response.getWriter().println(newTry.combinationArray[2].getColor());
-		response.getWriter().println(newTry.combinationArray[3].getColor());
-		response.getWriter().print(newTry.responseArray[0]);
-		response.getWriter().print(newTry.responseArray[1]);
+		
+		
+		
+		
+		
+		response.getWriter().println(game.referenceCombination.colors[0]);
+		response.getWriter().println(game.referenceCombination.colors[1]);
+		response.getWriter().println(game.referenceCombination.colors[2]);
+		response.getWriter().println(game.referenceCombination.colors[3]);
+		response.getWriter().println(newTry.colors[0]);
+		response.getWriter().println(newTry.colors[1]);
+		response.getWriter().println(newTry.colors[2]);
+		response.getWriter().println(newTry.colors[3]);
+		response.getWriter().print(game.result[0]);
+		response.getWriter().println(game.result[1]);
+		response.getWriter().println(game.isEnded());
 		
 		//response.getWriter().println(couleur1);	
 		
 		
-		this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
+		//this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
 
 		
 		
@@ -101,7 +103,7 @@ public class FirstServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String couleur1 = request.getParameter("couleur1");
 		request.setAttribute("couleur1", couleur1);
-		this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
+		//this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
 		//doGet(request, response);
 	}
 	
