@@ -25,12 +25,6 @@ public class FirstServlet extends HttpServlet{
 		String couleur3 = request.getParameter("couleur3");
 		String couleur4 = request.getParameter("couleur4");
 
-
-		request.setAttribute("couleur1", couleur1);
-		request.setAttribute("couleur2", couleur2);
-		request.setAttribute("couleur3", couleur3);
-		request.setAttribute("couleur4", couleur4);
-
 		Piece pion1 = new Piece();
 		Piece pion2 = new Piece();
 		Piece pion3 = new Piece();
@@ -99,8 +93,6 @@ public class FirstServlet extends HttpServlet{
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String couleur1 = request.getParameter("couleur1");
-		request.setAttribute("couleur1", couleur1);
 		this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
 		//doGet(request, response);
 	}
