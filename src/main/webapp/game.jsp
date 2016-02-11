@@ -84,17 +84,21 @@
 <%
 
 String[][] couleurs = (String[][]) session.getAttribute("couleurs");
+int[] result = (int[]) session.getAttribute("result");
 
 %>
 	
 	
-	<div id="board" class="ui four column grid">
+	<div id="board" class="ui six column grid">
 	
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
-
+				<div class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur bien placée : ${ result[0] }</a></div>
+                <div id = "resultbutton" class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur mal placée : ${ result[1] }</a></div>
+				
+				
 	</div>	
 		
 	
