@@ -3,6 +3,7 @@ package isen.jee.mastermind;
 
 public class Game {
 	int[] result = new int[2];
+	int numberOfTry = 0;
 	Combination referenceCombination;
 
 	public Game(String color1, String color2, String color3, String color4) {

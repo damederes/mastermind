@@ -80,13 +80,35 @@
    		<input type="submit" value="Envoyer" >
 	</form>
 	</div>
-	<div id="board" class="ui four column grid">
-                <div class="column"><a href="" class="ui icon massive ${ pion1.getColor() } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ pion2.getColor() } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ pion3.getColor() } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ pion4.getColor() } button"></a></div>
+
+<%
+String[][] couleurs=new String[10][4];
+couleurs = (String[][])request.getAttribute("couleurs");
+
+%>
 	
-	</div>
+	<div id="board" class="ui four column grid">
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
+	
+	</div>	
+		
+	
+	<p><c:out value = "${string1 }"/> </p>
+	<p><c:out value = "${string2 }"/> </p>
+	<p><c:out value = "${string3 }"/> </p>
+	<p><c:out value = "${string4 }"/> </p>
+	<p><c:out value = "${string5 }"/> </p>
+	<p><c:out value = "${string6 }"/> </p>
+	<p><c:out value = "${string7 }"/> </p>
+	<p><c:out value = "${string8 }"/> </p>
+	<p><c:out value = "${string9 }"/> </p>
+	<p><c:out value = "${string10 }"/> </p>
+	<p><c:out value = "${string11 }"/> </p>
+		
+	
 </body>
 
 </html>

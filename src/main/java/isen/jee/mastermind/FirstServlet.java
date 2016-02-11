@@ -21,45 +21,8 @@ public class FirstServlet extends HttpServlet{
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		String couleur1 = request.getParameter("couleur1");
-		String couleur2 = request.getParameter("couleur2");
-		String couleur3 = request.getParameter("couleur3");
-		String couleur4 = request.getParameter("couleur4");
-
-
-		request.setAttribute("couleur1", couleur1);
-		request.setAttribute("couleur2", couleur2);
-		request.setAttribute("couleur3", couleur3);
-		request.setAttribute("couleur4", couleur4);
-/*
-		Piece pion1 = new Piece();
-		Piece pion2 = new Piece();
-		Piece pion3 = new Piece();
-		Piece pion4 = new Piece();
-		
-		request.getAttribute("couleur1");
-		request.getAttribute("couleur2");
-		request.getAttribute("couleur3");
-		request.getAttribute("couleur4");
-		
-		pion1.setColor(couleur1);
-		pion2.setColor(couleur2);
-		pion3.setColor(couleur3);
-		pion4.setColor(couleur4);
-		
-		request.setAttribute("pion1", pion1);
-		request.setAttribute("pion2", pion2);
-		request.setAttribute("pion3", pion3);
-		request.setAttribute("pion4", pion4);
-		
-		*/
-
-		//partie de Nico
-		
 		HttpSession session = request.getSession();
 		Game game;
-		
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);
@@ -69,6 +32,38 @@ public class FirstServlet extends HttpServlet{
 			game = (Game)request.getSession().getAttribute("game");
 		}
 		
+		
+		String[][] couleurs=new String[10][4];
+		
+		String couleur1 = request.getParameter("couleur1");
+		String couleur2 = request.getParameter("couleur2");
+		String couleur3 = request.getParameter("couleur3");
+		String couleur4 = request.getParameter("couleur4");
+
+		for (int i = 1; i < 5; i++){
+			couleurs[game.numberOfTry][i-1] = "couleur1";
+			
+		}
+
+		request.setAttribute("couleurs", couleurs);
+		
+//		request.setAttribute("couleur1", couleur1);
+//		request.setAttribute("couleur2", couleur2);
+//		request.setAttribute("couleur3", couleur3);
+//		request.setAttribute("couleur4", couleur4);
+
+		
+
+		
+		Combination combination = new Combination(couleur1, couleur2, couleur3, couleur4);
+		request.setAttribute("couleur1", couleur1);
+		request.setAttribute("couleur2", couleur2);
+		request.setAttribute("couleur3", couleur3);
+		request.setAttribute("couleur4", couleur4);
+		
+
+		//partie de Nico
+
 		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
 		game.testNewCombination(newTry);
 	
@@ -76,24 +71,34 @@ public class FirstServlet extends HttpServlet{
 		
 		
 		
+		String string1 = game.referenceCombination.colors[0].toString();
+		String string2 = game.referenceCombination.colors[1].toString();
+		String string3 = game.referenceCombination.colors[2].toString();
+		String string4 = game.referenceCombination.colors[3].toString();
+		String string5 = newTry.colors[0].toString();
+		String string6 = newTry.colors[1].toString();
+		String string7 = newTry.colors[2].toString();
+		String string8 = newTry.colors[3].toString();
+		Integer string9 = game.result[0];
+		Integer string10 = game.result[1];
+		Boolean string11 = game.isEnded();
+		
+		request.setAttribute("string1", string1);
+		request.setAttribute("string2", string2);
+		request.setAttribute("string3", string3);
+		request.setAttribute("string4", string4);
+		request.setAttribute("string5", string5);
+		request.setAttribute("string6", string6);
+		request.setAttribute("string7", string7);
+		request.setAttribute("string8", string8);
+		request.setAttribute("string9", string9);
+		request.setAttribute("string10", string10);
+		request.setAttribute("string11", string11);
+		
+
 		
 		
-		response.getWriter().println(game.referenceCombination.colors[0]);
-		response.getWriter().println(game.referenceCombination.colors[1]);
-		response.getWriter().println(game.referenceCombination.colors[2]);
-		response.getWriter().println(game.referenceCombination.colors[3]);
-		response.getWriter().println(newTry.colors[0]);
-		response.getWriter().println(newTry.colors[1]);
-		response.getWriter().println(newTry.colors[2]);
-		response.getWriter().println(newTry.colors[3]);
-		response.getWriter().print(game.result[0]);
-		response.getWriter().println(game.result[1]);
-		response.getWriter().println(game.isEnded());
-		
-		//response.getWriter().println(couleur1);	
-		
-		
-		//this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
 
 		
 		
