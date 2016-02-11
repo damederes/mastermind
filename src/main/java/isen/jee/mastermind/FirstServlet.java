@@ -41,9 +41,14 @@ public class FirstServlet extends HttpServlet{
 		String couleur4 = request.getParameter("couleur4");
 
 		for (int i = 1; i < 5; i++){
-			couleurs[game.numberOfTry][i-1] = "couleur1";
+			couleurs[game.numberOfTry][i-1] = request.getParameter("couleur"+i);
 			
 		}
+		/*
+		couleurs[0][0]=request.getParameter("couleur1");
+		couleurs[0][1]=request.getParameter("couleur2");
+		couleurs[0][2]=request.getParameter("couleur3");
+		couleurs[0][3]=request.getParameter("couleur4");*/
 
 		request.setAttribute("couleurs", couleurs);
 		

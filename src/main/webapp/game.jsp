@@ -82,17 +82,19 @@
 	</div>
 
 <%
-String[][] couleurs=new String[10][4];
-couleurs = (String[][])request.getAttribute("couleurs");
+
+String[][] couleurs = (String[][]) session.getAttribute("couleurs");
 
 %>
 	
+	
 	<div id="board" class="ui four column grid">
+	
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
                 <div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
-	
+
 	</div>	
 		
 	
