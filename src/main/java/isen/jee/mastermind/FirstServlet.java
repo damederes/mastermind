@@ -51,7 +51,7 @@ public class FirstServlet extends HttpServlet{
 
 		for (int i = 1; i < 5; i++){
 
-			couleurs[game.numberOfTry][i-1] = request.getParameter("couleur"+i);
+			couleurs[game.numberOfTry+1][i-1] = request.getParameter("couleur"+i);
 			System.out.println(couleurs[0][0]);
 			System.out.println(game.numberOfTry);
 		}
