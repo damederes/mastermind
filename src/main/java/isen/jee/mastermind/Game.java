@@ -3,7 +3,20 @@ package isen.jee.mastermind;
 
 public class Game {
 	int[] result = new int[2];
-	int numberOfTry = 0;
+	int numberOfTry = -1; 
+	public int[] getResult() {
+		return result;
+	}
+	public void setResult(int[] result) {
+		this.result = result;
+	}
+	public int getNumberOfTry() {
+		return numberOfTry;
+	}
+	public void setNumberOfTry(int numberOfTry) {
+		this.numberOfTry = numberOfTry;
+	}
+
 	Combination referenceCombination;
 
 	public Game(String color1, String color2, String color3, String color4) {
@@ -40,6 +53,8 @@ public class Game {
 				}
 			}
 		}
+			numberOfTry++;
+			System.out.println("et ici c'est "+ numberOfTry);;
 	}
 	
 	

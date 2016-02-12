@@ -84,17 +84,72 @@
 <%
 
 String[][] couleurs = (String[][]) session.getAttribute("couleurs");
+//Game game = session.getAttribute("game");
 
 %>
 	
 	
 	<div id="board" class="ui four column grid">
-	
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
-
+				<c:if test = "${game.numberOfTry > 8}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 7}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 6}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 5}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-3][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-3][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-3][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-3][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 4}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-4][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-4][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-4][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-4][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 3}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-5][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-5][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-5][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-5][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 2}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-6][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-6][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-6][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[game.numberOfTry-6][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 1}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[2][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > 0}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[1][3] } button"></a></div>
+				</c:if>
+				<c:if test = "${game.numberOfTry > -1}" >
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
+                	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
+				</c:if>
 	</div>	
 		
 	
