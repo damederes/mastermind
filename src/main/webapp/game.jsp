@@ -84,11 +84,16 @@
 <%
 
 String[][] couleurs = (String[][]) session.getAttribute("couleurs");
+<<<<<<< HEAD
 //Game game = session.getAttribute("game");
+=======
+int[] result = (int[]) session.getAttribute("result");
+>>>>>>> fcaea8ace5d375ffd26dd85efbbfa1ed5df5d371
 
 %>
 	
 	
+<<<<<<< HEAD
 	<div id="board" class="ui four column grid">
 				<c:if test = "${game.numberOfTry > 8}" >
                 	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
@@ -150,6 +155,18 @@ String[][] couleurs = (String[][]) session.getAttribute("couleurs");
                 	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
                 	<div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
 				</c:if>
+=======
+	<div id="board" class="ui six column grid">
+	
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
+                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
+				<div class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur bien placée : ${ result[0] }</a></div>
+                <div id = "resultbutton" class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur mal placée : ${ result[1] }</a></div>
+				
+				
+>>>>>>> fcaea8ace5d375ffd26dd85efbbfa1ed5df5d371
 	</div>	
 		
 	

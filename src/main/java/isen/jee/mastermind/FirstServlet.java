@@ -23,6 +23,7 @@ public class FirstServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Game game;
+		String[][] couleurs;
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);
@@ -32,8 +33,16 @@ public class FirstServlet extends HttpServlet{
 			game = (Game)request.getSession().getAttribute("game");
 		}
 		
+		if (session.getAttribute("couleurs") == null){
+			 couleurs=new String[10][4];
+			 session.setAttribute("couleurs", couleurs);
+			
+			
+		}
+		else{
+			couleurs = (String[][])request.getSession().getAttribute("couleurs");
+		}
 		
-		String[][] couleurs=new String[10][4];
 		
 		String couleur1 = request.getParameter("couleur1");
 		String couleur2 = request.getParameter("couleur2");
@@ -41,11 +50,15 @@ public class FirstServlet extends HttpServlet{
 		String couleur4 = request.getParameter("couleur4");
 
 		for (int i = 1; i < 5; i++){
-			couleurs[game.numberOfTry+1][i-1] = request.getParameter("couleur"+i);
-		}
 
+			couleurs[game.numberOfTry][i-1] = request.getParameter("couleur"+i);
+			System.out.println(couleurs[0][0]);
+			System.out.println(game.numberOfTry);
+		}
+		
 
 		request.setAttribute("couleurs", couleurs);
+		request.setAttribute("result", game.result);
 
 
 		
@@ -60,6 +73,7 @@ public class FirstServlet extends HttpServlet{
 
 		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
 		game.testNewCombination(newTry);
+
 		
 		
 		this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);

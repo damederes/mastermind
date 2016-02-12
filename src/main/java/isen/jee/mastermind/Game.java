@@ -53,8 +53,9 @@ public class Game {
 				}
 			}
 		}
-			numberOfTry++;
-			System.out.println("et ici c'est "+ numberOfTry);;
+
+		numberOfTry++;
+		
 	}
 	
 	
