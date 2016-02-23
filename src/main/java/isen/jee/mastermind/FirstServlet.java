@@ -24,15 +24,17 @@ public class FirstServlet extends HttpServlet{
 		Integer[][] result;
 		
 		System.out.println("cnksdlqmcnejkm");
-		
+	
 		String refresh = request.getParameter("refresh");
-		
-		
 		System.out.println(refresh);
-		if (refresh=="true"){
-			session.removeAttribute("game");
+		if (refresh != null){
+			session.setAttribute("game", null);
+			this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
+			refresh = null;
+			System.out.println("coucou");
 		}
-		System.out.println("passe");
+		
+
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);

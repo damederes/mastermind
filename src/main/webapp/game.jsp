@@ -26,7 +26,7 @@
                 <p>Bienvenue à ce jeu de mastermind </p>
             </div>
         </div>
-        <div class="column"><a href= "?refresh=true" class="ui icon  resetButton button">nouvelle partie</a></div>
+        <div class="column"><a href= "?refresh=1" class="ui icon  resetButton button">nouvelle partie</a></div>
     </div>
 	
 	<%
