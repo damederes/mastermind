@@ -25,6 +25,17 @@ public class FirstServlet extends HttpServlet{
 		Game game;
 		String[][] couleurs;
 		Integer[][] result;
+		
+		System.out.println("cnksdlqmcnejkm");
+		
+		String refresh = request.getParameter("refresh");
+		
+		
+		System.out.println(refresh);
+		if (refresh=="true"){
+			session.removeAttribute("game");
+		}
+		System.out.println("passé");
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);
@@ -53,7 +64,7 @@ public class FirstServlet extends HttpServlet{
 			result = (Integer[][])request.getSession().getAttribute("result");
 		}
 		
-		System.out.println("blablablabl    -1");
+		
 		
 		String couleur1 = request.getParameter("couleur1");
 		String couleur2 = request.getParameter("couleur2");
@@ -65,16 +76,12 @@ public class FirstServlet extends HttpServlet{
 		else {
 			for (int i = 1; i < 5; i++){
 				couleurs[game.numberOfTry+1][i-1] = request.getParameter("couleur"+i);
-				System.out.println(couleurs[0][0]);
-				System.out.println(game.numberOfTry);
+
 			}
 		}
 		
 
 		
-
-
-		System.out.println("blablablabl    0");
 		Combination combination = new Combination(couleur1, couleur2, couleur3, couleur4);
 		request.setAttribute("couleur1", couleur1);
 		request.setAttribute("couleur2", couleur2);
@@ -88,7 +95,6 @@ public class FirstServlet extends HttpServlet{
 		game.testNewCombination(newTry);
 		result[game.numberOfTry][0]=game.result[0];
 		result[game.numberOfTry][1]=game.result[1];
-		System.out.println(game.endingStatus());
 		request.setAttribute("status", game.endingStatus());
 		request.setAttribute("couleurs", couleurs);
 		request.setAttribute("result", result);

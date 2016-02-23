@@ -1,16 +1,15 @@
 package isen.jee.mastermind;
 
+import java.util.ArrayList;
 
 public class Game {
 	String status="0";
 	int[] result = new int[2];
 	int numberOfTry = -1; 
-	public int[] getResult() {
-		return result;
-	}
-	public void setResult(int[] result) {
-		this.result = result;
-	}
+
+	
+
+
 	public int getNumberOfTry() {
 		return numberOfTry;
 	}
@@ -33,7 +32,7 @@ public class Game {
 	
 	public String endingStatus() {
 		
-		if (numberOfTry==9 && result[0]!=4){
+		if (numberOfTry>8 && result[0]!=4){   // number of try commence a -1 donc en allant jusque 8 nous avons 10 essais.
 			status = "perdu";
 		}
 		else if (result[0] == 4){

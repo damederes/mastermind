@@ -9,8 +9,9 @@ public class GameTest {
 	/*
 	 * Nous voulons ici tester le bon fonctionnement d'une partie:
 	 * lorsque nous comparons deux combinaisons identiques
-	 *  le resultat final est true sinon il s'agit de false
-	 */
+	 *  le resultat final est gagné, lorsque les deux combinaisons sont 
+	 *  toujours différentes apres le nombre maximum d'essai alors le resultat est perdu
+	 *  le reste du temps le resultat est "0"	 */
 	@Test
 	public void it_can_play_a_game() throws Exception{
 		
@@ -22,9 +23,12 @@ public class GameTest {
 		
 				
 		game.testNewCombination(new Combination("red","orange","white","black"));
-		assertThat(game.endingStatus()).isEqualTo("gagné");
+		assertThat(game.endingStatus()).isEqualTo("gagné");   // on peut gagner
 		
-		
+		for (int i = 0; i<9 ; i++){
+			game.testNewCombination(new Combination("red","orange","white","purple"));
+		}
+		assertThat(game.endingStatus()).isEqualTo("perdu");    // on peut perdre
 	}
 		
 	/*
@@ -60,5 +64,7 @@ public class GameTest {
 		assertThat(game.result[0]).isEqualTo(0);
 		assertThat(game.result[1]).isEqualTo(4);
 	}
+	
+	
 	
 }

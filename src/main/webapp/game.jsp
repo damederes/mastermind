@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="isen.jee.mastermind.Game" %>
@@ -25,25 +26,27 @@
                 <p>Bienvenue à ce jeu de mastermind </p>
             </div>
         </div>
+        <div class="column"><a href= "?refresh=true" class="ui icon  resetButton button">nouvelle partie</a></div>
     </div>
 	
 	<%
-
-String[][] couleurs = (String[][]) session.getAttribute("couleurs");
-Integer[][] result = (Integer[][]) session.getAttribute("result");
-Game game = (Game)session.getAttribute("game");
-String status = (String)session.getAttribute("status");
-
-%>
+	
+	String[][] couleurs = (String[][]) session.getAttribute("couleurs");
+	Integer[][] result = (Integer[][]) session.getAttribute("result");
+	Game game = (Game)session.getAttribute("game");
+	String status = (String)session.getAttribute("status");
+	
+	
+	%>
 
 	<div>
-	<c:if test = "${game.numberOfTry < 9 || game.numberOfTry == null}">
+	<c:if test = "${(game.numberOfTry < 9 || game.numberOfTry == null) && (status == '0'|| status == null)}">
 	<form method="get" action="FirstServlet">
 
    		<p>
 
    			<label>Pion 1</label>
-       		<select name="couleur1" id="couleur">
+       		<select name="couleur1" id="couleur" >
         	   <option value="red">rouge</option>
         	   <option value="yellow">jaune</option>
         	   <option value="green">vert</option>
@@ -96,7 +99,7 @@ String status = (String)session.getAttribute("status");
 	</div>
 			<c:choose >
 				<c:when test="${status =='gagné' }">			
-					<div class="ui finalResult label"> Félicitation tu as gagné !!!</div>						
+					<div class="ui finalResult label"> Félicitations tu as gagné !!!</div>						
 				</c:when>
 				
 				<c:when test="${status == 'perdu' }">
@@ -104,7 +107,7 @@ String status = (String)session.getAttribute("status");
 				</c:when>
 				
 			</c:choose>
-			 
+			
 			<div id="board" class="ui six column grid">
 				<c:if test = "${game.numberOfTry > 8}" >
                 	<div class="column"><a class="ui icon massive ${ couleurs[9][0] } button"></a></div>
