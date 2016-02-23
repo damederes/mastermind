@@ -49,11 +49,15 @@ public class FirstServlet extends HttpServlet{
 		String couleur3 = request.getParameter("couleur3");
 		String couleur4 = request.getParameter("couleur4");
 
-		for (int i = 1; i < 5; i++){
+		if (game.numberOfTry>8){
+		}
+		else {
+			for (int i = 1; i < 5; i++){
 
-			couleurs[game.numberOfTry+1][i-1] = request.getParameter("couleur"+i);
-			System.out.println(couleurs[0][0]);
-			System.out.println(game.numberOfTry);
+				couleurs[game.numberOfTry+1][i-1] = request.getParameter("couleur"+i);
+				System.out.println(couleurs[0][0]);
+				System.out.println(game.numberOfTry);
+			}
 		}
 		
 

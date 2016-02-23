@@ -1,5 +1,6 @@
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="isen.jee.mastermind.Game" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,9 +27,21 @@
         </div>
     </div>
 	
+	<%
+
+String[][] couleurs = (String[][]) session.getAttribute("couleurs");
+
+int[] result = (int[]) session.getAttribute("result");
+Game game = (Game)session.getAttribute("game");
+
+%>
+
 	<div>
+	<c:if test = "${game.numberOfTry < 9 || game.numberOfTry == null}">
 	<form method="get" action="FirstServlet">
+
    		<p>
+
    			<label>Pion 1</label>
        		<select name="couleur1" id="couleur">
         	   <option value="red">rouge</option>
@@ -79,15 +92,8 @@
    			</p>
    		<input type="submit" value="Envoyer" >
 	</form>
+    </c:if>
 	</div>
-
-<%
-
-String[][] couleurs = (String[][]) session.getAttribute("couleurs");
-
-int[] result = (int[]) session.getAttribute("result");
-
-%>
 		
 
 			<div id="board" class="ui four column grid">

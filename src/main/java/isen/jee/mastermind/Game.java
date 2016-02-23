@@ -32,7 +32,7 @@ public class Game {
 	
 	public Boolean isEnded() {
 		boolean isEnded = false;
-		if (result[0] == 4){
+		if (result[0] == 4 || numberOfTry == 9){
 			isEnded=true;
 		}
 		return isEnded;
