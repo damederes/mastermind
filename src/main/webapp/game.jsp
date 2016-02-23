@@ -98,7 +98,7 @@
     </c:if>
 	</div>
 			<c:choose >
-				<c:when test="${status =='gagné' }">			
+				<c:when test="${status =='gagne' }">			
 					<div class="ui finalResult label"> Félicitations tu as gagné !!!</div>						
 				</c:when>
 				
@@ -210,34 +210,7 @@
 					</div>
 				</c:if>
 			</div>
-<%-- 
-	<div id="board" class="ui six column grid">
-	
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
-				<div class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur bien placée : ${ result[0] }</a></div>
-                <div id = "resultbutton" class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur mal placée : ${ result[1] }</a></div>
-				
-				
 
-	</div>	 --%>
-		
-	
-	<p><c:out value = "${string1 }"/> </p>
-	<p><c:out value = "${string2 }"/> </p>
-	<p><c:out value = "${string3 }"/> </p>
-	<p><c:out value = "${string4 }"/> </p>
-	<p><c:out value = "${string5 }"/> </p>
-	<p><c:out value = "${string6 }"/> </p>
-	<p><c:out value = "${string7 }"/> </p>
-	<p><c:out value = "${string8 }"/> </p>
-	<p><c:out value = "${string9 }"/> </p>
-	<p><c:out value = "${string10 }"/> </p>
-	<p><c:out value = "${string11 }"/> </p>
-		
-	
 </body>
 
 </html>

@@ -2,15 +2,12 @@ package isen.jee.mastermind;
 
 import java.io.IOException;
 
-import javax.enterprise.context.SessionScoped;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import isen.jee.mastermind.Combination.Colors;
 
 
 @WebServlet(urlPatterns = "/g/*")
@@ -35,7 +32,7 @@ public class FirstServlet extends HttpServlet{
 		if (refresh=="true"){
 			session.removeAttribute("game");
 		}
-		System.out.println("passé");
+		System.out.println("passe");
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);
@@ -81,15 +78,11 @@ public class FirstServlet extends HttpServlet{
 		}
 		
 
-		
-		Combination combination = new Combination(couleur1, couleur2, couleur3, couleur4);
 		request.setAttribute("couleur1", couleur1);
 		request.setAttribute("couleur2", couleur2);
 		request.setAttribute("couleur3", couleur3);
 		request.setAttribute("couleur4", couleur4);
 		
-			
-		//partie de Nico
 
 		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
 		game.testNewCombination(newTry);

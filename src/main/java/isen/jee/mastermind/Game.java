@@ -36,7 +36,7 @@ public class Game {
 			status = "perdu";
 		}
 		else if (result[0] == 4){
-			status = "gagné";
+			status = "gagne";
 		}
 		return status;
 	}
