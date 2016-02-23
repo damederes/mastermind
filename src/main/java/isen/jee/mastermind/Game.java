@@ -2,6 +2,7 @@ package isen.jee.mastermind;
 
 
 public class Game {
+	String status="0";
 	int[] result = new int[2];
 	int numberOfTry = -1; 
 	public int[] getResult() {
@@ -30,12 +31,15 @@ public class Game {
 	
 	
 	
-	public Boolean isEnded() {
-		boolean isEnded = false;
-		if (result[0] == 4 || numberOfTry == 9){
-			isEnded=true;
+	public String endingStatus() {
+		
+		if (numberOfTry==9 && result[0]!=4){
+			status = "perdu";
 		}
-		return isEnded;
+		else if (result[0] == 4){
+			status = "gagné";
+		}
+		return status;
 	}
 	
 	public void testNewCombination(Combination combination){

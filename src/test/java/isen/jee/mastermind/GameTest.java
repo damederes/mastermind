@@ -18,10 +18,12 @@ public class GameTest {
 		Game game = new Game("red","orange","white","black");
 		
 		game.testNewCombination(new Combination("red","orange","white","purple"));
-		assertFalse(game.isEnded());
+		assertThat(game.endingStatus()).isEqualTo("0");
+		
 				
 		game.testNewCombination(new Combination("red","orange","white","black"));
-		assertTrue(game.isEnded());
+		assertThat(game.endingStatus()).isEqualTo("gagné");
+		
 		
 	}
 		

@@ -81,13 +81,15 @@ public class FirstServlet extends HttpServlet{
 		request.setAttribute("couleur3", couleur3);
 		request.setAttribute("couleur4", couleur4);
 		
-		System.out.println("blablablabl   1");	
+			
 		//partie de Nico
 
 		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
 		game.testNewCombination(newTry);
 		result[game.numberOfTry][0]=game.result[0];
 		result[game.numberOfTry][1]=game.result[1];
+		System.out.println(game.endingStatus());
+		request.setAttribute("status", game.endingStatus());
 		request.setAttribute("couleurs", couleurs);
 		request.setAttribute("result", result);
 		

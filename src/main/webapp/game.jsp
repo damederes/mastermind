@@ -32,6 +32,7 @@
 String[][] couleurs = (String[][]) session.getAttribute("couleurs");
 Integer[][] result = (Integer[][]) session.getAttribute("result");
 Game game = (Game)session.getAttribute("game");
+String status = (String)session.getAttribute("status");
 
 %>
 
@@ -93,9 +94,17 @@ Game game = (Game)session.getAttribute("game");
 	</form>
     </c:if>
 	</div>
-
-		
-
+			<c:choose >
+				<c:when test="${status =='gagné' }">			
+					<div class="ui finalResult label"> Félicitation tu as gagné !!!</div>						
+				</c:when>
+				
+				<c:when test="${status == 'perdu' }">
+					<div class="ui finalResult label"> Malheureusement tu as perdu !!</div>
+				</c:when>
+				
+			</c:choose>
+			 
 			<div id="board" class="ui six column grid">
 				<c:if test = "${game.numberOfTry > 8}" >
                 	<div class="column"><a class="ui icon massive ${ couleurs[9][0] } button"></a></div>
