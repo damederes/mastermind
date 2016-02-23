@@ -24,6 +24,7 @@ public class FirstServlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		Game game;
 		String[][] couleurs;
+		Integer[][] result;
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);
@@ -43,6 +44,16 @@ public class FirstServlet extends HttpServlet{
 			couleurs = (String[][])request.getSession().getAttribute("couleurs");
 		}
 		
+		if (session.getAttribute("result") == null){
+			result = new Integer[10][2];
+			session.setAttribute("result", result);
+			
+		}
+		else{
+			result = (Integer[][])request.getSession().getAttribute("result");
+		}
+		
+		System.out.println("blablablabl    -1");
 		
 		String couleur1 = request.getParameter("couleur1");
 		String couleur2 = request.getParameter("couleur2");
@@ -53,7 +64,6 @@ public class FirstServlet extends HttpServlet{
 		}
 		else {
 			for (int i = 1; i < 5; i++){
-
 				couleurs[game.numberOfTry+1][i-1] = request.getParameter("couleur"+i);
 				System.out.println(couleurs[0][0]);
 				System.out.println(game.numberOfTry);
@@ -61,24 +71,25 @@ public class FirstServlet extends HttpServlet{
 		}
 		
 
-		request.setAttribute("couleurs", couleurs);
-		request.setAttribute("result", game.result);
-
-
 		
+
+
+		System.out.println("blablablabl    0");
 		Combination combination = new Combination(couleur1, couleur2, couleur3, couleur4);
 		request.setAttribute("couleur1", couleur1);
 		request.setAttribute("couleur2", couleur2);
 		request.setAttribute("couleur3", couleur3);
 		request.setAttribute("couleur4", couleur4);
 		
-
+		System.out.println("blablablabl   1");	
 		//partie de Nico
 
 		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
 		game.testNewCombination(newTry);
-
-		
+		result[game.numberOfTry][0]=game.result[0];
+		result[game.numberOfTry][1]=game.result[1];
+		request.setAttribute("couleurs", couleurs);
+		request.setAttribute("result", result);
 		
 		this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
 
