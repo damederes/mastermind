@@ -39,6 +39,20 @@ public class FirstServlet extends HttpServlet{
 		}
 		
 		
+=======
+		System.out.println("cnksdlqmcnejkm");
+	
+		String refresh = request.getParameter("refresh");
+		System.out.println(refresh);
+		if (refresh != null){
+			session.setAttribute("game", null);
+			this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
+			refresh = null;
+			System.out.println("coucou");
+		}
+		
+
+>>>>>>> 7a68556f80be5c995d96971b3c534e36d578f9c3
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);
@@ -83,14 +97,20 @@ public class FirstServlet extends HttpServlet{
 		}
 		
 
+<<<<<<< HEAD
 		Combination combination = new Combination(couleur1, couleur2, couleur3, couleur4);
+=======
+>>>>>>> 7a68556f80be5c995d96971b3c534e36d578f9c3
 		request.setAttribute("couleur1", couleur1);
 		request.setAttribute("couleur2", couleur2);
 		request.setAttribute("couleur3", couleur3);
 		request.setAttribute("couleur4", couleur4);
 		
+<<<<<<< HEAD
 
 		//partie de Nico
+=======
+>>>>>>> 7a68556f80be5c995d96971b3c534e36d578f9c3
 
 		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
 		game.testNewCombination(newTry);

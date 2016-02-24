@@ -9,8 +9,8 @@ public class GameTest {
 	/*
 	 * Nous voulons ici tester le bon fonctionnement d'une partie:
 	 * lorsque nous comparons deux combinaisons identiques
-	 *  le resultat final est gagné, lorsque les deux combinaisons sont 
-	 *  toujours différentes apres le nombre maximum d'essai alors le resultat est perdu
+	 *  le resultat final est gagne, lorsque les deux combinaisons sont 
+	 *  toujours differentes apres le nombre maximum d'essai alors le resultat est perdu
 	 *  le reste du temps le resultat est "0"	 */
 	@Test
 	public void it_can_play_a_game() throws Exception{
@@ -23,7 +23,7 @@ public class GameTest {
 		
 				
 		game.testNewCombination(new Combination("red","orange","white","black"));
-		assertThat(game.endingStatus()).isEqualTo("gagné");   // on peut gagner
+		assertThat(game.endingStatus()).isEqualTo("gagne");   // on peut gagner
 		
 		for (int i = 0; i<9 ; i++){
 			game.testNewCombination(new Combination("red","orange","white","purple"));
@@ -32,9 +32,9 @@ public class GameTest {
 	}
 		
 	/*
-	 * Dans ce test, nous voulons vérifie que le tableau result 
-	 * renvoi bien les bonnes valeurs suite à la comparaison de 
-	 * deux combinations
+	 * Dans ce test, nous voulons verifier que le tableau result 
+	 * renvoie bien les bonnes valeurs suite a la comparaison de 
+	 * deux combinaisons
 	 */
 	@Test
 	public void it_can_compare_two_combinations() throws Exception{
