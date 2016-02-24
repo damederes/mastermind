@@ -1,3 +1,4 @@
+<%@page import="isen.jee.mastermind.Combination.Colors"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
@@ -35,8 +36,7 @@
 	Integer[][] result = (Integer[][]) session.getAttribute("result");
 	Game game = (Game)session.getAttribute("game");
 	String status = (String)session.getAttribute("status");
-	
-	
+
 	%>
 
 	<div>
@@ -44,54 +44,21 @@
 	<form method="get" action="FirstServlet">
 
    		<p>
+   		<c:forEach var="i" begin="1" end="4">
+   			<label>Pion ${i}</label>
+       		<select name="couleur${i}" id="couleur" >
+        	   <option value="red" ${(couleurs[game.numberOfTry][i-1] == "red") ? "selected" : ""}>rouge</option>
+        	   <option value="yellow" ${(couleurs[game.numberOfTry][i-1] == "yellow") ? "selected" : ""}>jaune</option>
+        	   <option value="green" ${(couleurs[game.numberOfTry][i-1] == "green") ? "selected" : ""}>vert</option>
+        	   <option value="blue" ${(couleurs[game.numberOfTry][i-1] == "blue") ? "selected" : ""}>bleu</option>
+        	   <option value="orange" ${(couleurs[game.numberOfTry][i-1] == "orange") ? "selected" : ""}>orange</option>
+        	   <option value="white" ${(couleurs[game.numberOfTry][i-1] == "white") ? "selected" : ""}>blanc</option>
+        	   <option value="purple" ${(couleurs[game.numberOfTry][i-1] == "purple") ? "selected" : ""}>violet</option>
+        	   <option value="black" ${(couleurs[game.numberOfTry][i-1] == "black") ? "selected" : ""}>noir</option>
+       		</select>
+   		</c:forEach>
 
-   			<label>Pion 1</label>
-       		<select name="couleur1" id="couleur" >
-        	   <option value="red">rouge</option>
-        	   <option value="yellow">jaune</option>
-        	   <option value="green">vert</option>
-        	   <option value="blue">bleu</option>
-        	   <option value="orange">orange</option>
-        	   <option value="white">blanc</option>
-        	   <option value="purple">violet</option>
-        	   <option value="black">noir</option>
-       		</select>
-			
-			<label>Pion 2</label>
-       		<select name="couleur2" id="couleur">
-        	   <option value="red">rouge</option>
-        	   <option value="yellow">jaune</option>
-        	   <option value="green">vert</option>
-        	   <option value="blue">bleu</option>
-        	   <option value="orange">orange</option>
-        	   <option value="white">blanc</option>
-        	   <option value="purple">violet</option>
-        	   <option value="black">noir</option>
-       		</select>
-
-   			<label>Pion 3</label>
-       		<select name="couleur3" id="couleur">
-        	   <option value="red">rouge</option>
-        	   <option value="yellow">jaune</option>
-        	   <option value="green">vert</option>
-        	   <option value="blue">bleu</option>
-        	   <option value="orange">orange</option>
-        	   <option value="white">blanc</option>
-        	   <option value="purple">violet</option>
-        	   <option value="black">noir</option>
-       		</select>
-
-   			<label>Pion 4</label>
-       		<select name="couleur4" id="couleur">
-         	   <option value="red">rouge</option>
-        	   <option value="yellow">jaune</option>
-        	   <option value="green">vert</option>
-        	   <option value="blue">bleu</option>
-        	   <option value="orange">orange</option>
-        	   <option value="white">blanc</option>
-        	   <option value="purple">violet</option>
-        	   <option value="black">noir</option>
-       		</select>
+   			
    			</p>
    		<input type="submit" value="Envoyer" >
 	</form>
@@ -109,135 +76,23 @@
 			</c:choose>
 			
 			<div id="board" class="ui six column grid">
-				<c:if test = "${game.numberOfTry > 8}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[9][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[9][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[9][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[9][3] } button"></a></div>
+			<c:forEach var="i" begin="0" end="9">
+				<c:if test = "${game.numberOfTry > 8-i}" >
+                	<div class="column"><a class="ui icon massive ${ couleurs[9-i][0] } button"></a></div>
+                	<div class="column"><a class="ui icon massive ${ couleurs[9-i][1] } button"></a></div>
+                	<div class="column"><a class="ui icon massive ${ couleurs[9-i][2] } button"></a></div>
+                	<div class="column"><a class="ui icon massive ${ couleurs[9-i][3] } button"></a></div>
 					<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[9][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[9][1] }</div></div>
+	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[9-i][0] }</div></div>
+	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[9-i][1] }</div></div>
 					</div>
 				</c:if>
-				<c:if test = "${game.numberOfTry > 7}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${  result[8][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[8][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 6}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[7][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[7][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 5}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[6][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[6][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 4}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[5][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[5][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 3}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[4][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[4][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 2}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[3][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[3][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 1}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[2][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[2][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 0}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[1][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[1][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > -1}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[0][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[0][1] }</div></div>
-					</div>
-				</c:if>
+				
+			</c:forEach>
 			</div>
-<%-- 
-	<div id="board" class="ui six column grid">
-	
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][0] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][1] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][2] } button"></a></div>
-                <div class="column"><a href="" class="ui icon massive ${ couleurs[0][3] } button"></a></div>
-				<div class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur bien placée : ${ result[0] }</a></div>
-                <div id = "resultbutton" class="column"><a href="" id="result"  class="ui icon massive white button">bonne couleur mal placée : ${ result[1] }</a></div>
-				
-				
+			
 
-	</div>	 --%>
-		
-	
-	<p><c:out value = "${string1 }"/> </p>
-	<p><c:out value = "${string2 }"/> </p>
-	<p><c:out value = "${string3 }"/> </p>
-	<p><c:out value = "${string4 }"/> </p>
-	<p><c:out value = "${string5 }"/> </p>
-	<p><c:out value = "${string6 }"/> </p>
-	<p><c:out value = "${string7 }"/> </p>
-	<p><c:out value = "${string8 }"/> </p>
-	<p><c:out value = "${string9 }"/> </p>
-	<p><c:out value = "${string10 }"/> </p>
-	<p><c:out value = "${string11 }"/> </p>
-		
-	
+
 </body>
 
 </html>

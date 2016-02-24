@@ -2,6 +2,8 @@ package isen.jee.mastermind;
 
 import java.util.ArrayList;
 
+import isen.jee.mastermind.Combination.Colors;
+
 public class Game {
 	String status="0";
 	int[] result = new int[2];
@@ -60,7 +62,6 @@ public class Game {
 		numberOfTry++;
 		
 	}
-	
 	
 	
 	

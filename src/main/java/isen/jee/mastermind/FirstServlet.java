@@ -26,16 +26,19 @@ public class FirstServlet extends HttpServlet{
 		String[][] couleurs;
 		Integer[][] result;
 		
-		System.out.println("cnksdlqmcnejkm");
 		
 		String refresh = request.getParameter("refresh");
+	
 		
 		
-		System.out.println(refresh);
-		if (refresh=="true"){
-			session.removeAttribute("game");
+		if (refresh != null){
+			refresh=null;
+			session.setAttribute("game", null);
+			this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
+
 		}
-		System.out.println("passé");
+		
+		
 		if (session.getAttribute("game") == null){
 			game = new Game();
 			session.setAttribute("game", game);
@@ -65,30 +68,28 @@ public class FirstServlet extends HttpServlet{
 		}
 		
 		
-		
 		String couleur1 = request.getParameter("couleur1");
 		String couleur2 = request.getParameter("couleur2");
 		String couleur3 = request.getParameter("couleur3");
 		String couleur4 = request.getParameter("couleur4");
-
 		if (game.numberOfTry>8){
 		}
 		else {
 			for (int i = 1; i < 5; i++){
+
 				couleurs[game.numberOfTry+1][i-1] = request.getParameter("couleur"+i);
 
 			}
 		}
 		
 
-		
 		Combination combination = new Combination(couleur1, couleur2, couleur3, couleur4);
 		request.setAttribute("couleur1", couleur1);
 		request.setAttribute("couleur2", couleur2);
 		request.setAttribute("couleur3", couleur3);
 		request.setAttribute("couleur4", couleur4);
 		
-			
+
 		//partie de Nico
 
 		Combination newTry = new Combination(couleur1,couleur2,couleur3,couleur4);
@@ -98,7 +99,6 @@ public class FirstServlet extends HttpServlet{
 		request.setAttribute("status", game.endingStatus());
 		request.setAttribute("couleurs", couleurs);
 		request.setAttribute("result", result);
-		
 		this.getServletContext().getRequestDispatcher("/game.jsp").forward(request, response);
 
 		
