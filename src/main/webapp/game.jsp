@@ -87,105 +87,12 @@
 	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[9-i][1] }</div></div>
 					</div>
 				</c:if>
-<<<<<<< HEAD
+
 				
 			</c:forEach>
 			</div>
 			
 
-=======
-				<c:if test = "${game.numberOfTry > 7}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[8][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${  result[8][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[8][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 6}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[7][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[7][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[7][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 5}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[6][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[6][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[6][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 4}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[5][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[5][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[5][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 3}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[4][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[4][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[4][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 2}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[3][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[3][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[3][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 1}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[2][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[2][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[2][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > 0}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[1][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[1][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[1][1] }</div></div>
-					</div>
-				</c:if>
-				<c:if test = "${game.numberOfTry > -1}" >
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][0] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][1] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][2] } button"></a></div>
-                	<div class="column"><a class="ui icon massive ${ couleurs[0][3] } button"></a></div>
-                	<div class="results">
-	                	<div class="column"><div class="ui result label">bonne couleur bien placée : ${ result[0][0] }</div></div>
-	                	<div class="column"><div class="ui result label">bonne couleur mal placée : ${ result[0][1] }</div></div>
-					</div>
-				</c:if>
-			</div>
->>>>>>> 7a68556f80be5c995d96971b3c534e36d578f9c3
 
 </body>
 
